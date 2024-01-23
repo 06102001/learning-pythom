@@ -20,7 +20,7 @@ def calculator(x, y, z):
         else:
             return x / y
     elif z == '5' :
-        return x + y, x - y, x * y, x / y
+        return "Suma", x + y, "Resta", x - y, "Multiplicacion", x * y, "Dividir", x / y
     else :
         return 'fail, invalid option'
 
