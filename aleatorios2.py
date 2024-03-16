@@ -26,7 +26,7 @@ print ("Dice 2:", d2)
 
 if d1==d2:
     print("Felicidades eres el Ganador")
-    else:
+else:
     print("sigue intentando")
 
 #print("Dice1 :", dice1)

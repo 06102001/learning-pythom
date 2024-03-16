@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Market</title>
+    </head>
+    <body>
+        <h1>list all users</h1>
+        <table border="1" align="center">
+            <tr>
+                <th>Identification</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+            </tr>
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+            </tr>
+        </table>
+    </body>
+</html>

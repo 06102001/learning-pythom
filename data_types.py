@@ -27,7 +27,7 @@ print("adress", type(adress))
 usuario_activo = True
 print("usuario_activo", type(usuario_activo))
 
-#4. Listas
+#4. Listas list
 frutas = ['Apple', 'Banana']
 print(frutas)
 print("Frutas", type(frutas))
