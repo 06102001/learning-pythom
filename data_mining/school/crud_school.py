@@ -259,6 +259,10 @@ def menu():
             create_identification_types(opt)
         elif opt == '5':
             create_users(opt)
+        elif opt == '6':
+            create_person(opt)
+        elif opt == '7':
+            create_students(opt)
         elif opt == '8':
             print("::: See 'u soon :::")
             exit()
