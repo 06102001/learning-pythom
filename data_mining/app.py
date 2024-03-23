@@ -1,7 +1,6 @@
-from flask import Flask, render_template
-from database import con, cur
+from flask import Flask, render_template, g
+from database import cur
 import sqlite3
-from flask import g
 
 app = Flask(__name__)
 
@@ -15,17 +14,17 @@ def get_db():
 
 @app.teardown_appcontext
 def close_connection(exception):
-    db = getatt(g, '_database', None)
+    db = getattr(g, '_database', None)
     if db is not None:
         db.close()
-@app.route('/')
 
+@app.route('/')
 def index():
-    con = get_db()
-    cur = con.cursor()
-    cur.execute('SELECT * FROM users')
-    dat = cur.fetchall()
-    return render_template('index.html', data=data)
+    conn = get_db()
+    cursor = conn.cursor()
+    cursor.execute("SELECT * FROM users")
+    data = cursor.fetchall()
+    return render_template('users.html', data=data)
 
 if __name__ == '__main__':
     app.run(debug=True)

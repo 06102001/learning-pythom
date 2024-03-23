@@ -3,31 +3,38 @@ Dev: Camilo Mosquera
 Scripts description: Configure SQLite3 database
 '''
 
-#Import engine database pack
+#Import engine database package
 import sqlite3
 
-#Create a database connection (Database name)
+#Create a database connnection (Database name)
 con = sqlite3.connect('market.db')
 
-#Creating cursor objet by conection => let us execute sql comands operations (Query)
+#Creating cursor object by conection => Let us execute sql commands or operations (Query)
 cur = con.cursor()
 
-#create user table
+#Create users table
 user_table = '''
     CREATE TABLE IF NOT EXISTS users (
-        id INTEGER PRIMARY KEY,
+        id INTEGER PRIMARY KEY, 
         firstname TEXT NOT NULL,
         lastname TEXT NOT NULL,
-        ident_number TEXT UNIQUE NOT NULL,
+        ident_number TEXT  UNIQUE NOT NULL,
         email TEXT UNIQUE NOT NULL,
-        password TEXT NOT NULL
-    ); 
+        password TEXT NOT NULL,
+        status BOOLEAN DEFAULT true,
+        created_at TIMESTAMP DEFAULT (datetime('now','localtime')),
+        updated_at TIMESTAMP NULL,
+        deleted_at TIMESTAMP NULL
+    );
 '''
-#EXECUTE SQL (Query)
+
+#Execute SQL (Query)
 cur.execute(user_table)
 
-#Save changes database
+#Save changes in database => Push to database
 con.commit()
 
-#print(":::Database market has been create:::")
+#print("::: Database market has been created :::")
 
+#Close connection
+#con.close()
